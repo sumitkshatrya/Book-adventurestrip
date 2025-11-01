@@ -6,8 +6,7 @@ const corsOptions = {
     // Allow requests from these origins
     const allowedOrigins = [
       'http://localhost:5173', // Vite dev server
-      'http://localhost:3000', // Create React App
-      'https://your-frontend-domain.com' // Production
+      'https://book-adventurestrip-tkkb.vercel.app/' // Production
     ];
     
     // Allow requests with no origin (like mobile apps or curl requests)
