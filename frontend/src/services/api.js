@@ -1,6 +1,6 @@
 // src/services/api.js
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-production-domain.com/api' 
+  ? 'https://book-adventurestrip.onrender.com' 
   : 'http://localhost:5000/api';
 
 // Generic API call function
