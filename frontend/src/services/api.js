@@ -1,7 +1,7 @@
 // src/services/api.js
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://book-adventurestrip.onrender.com' 
-  : 'http://localhost:5000/api';
+  ? 'https://book-adventurestrip.onrender.com/'
+    : 'http://localhost:5000/api';
 
 // Generic API call function
 export const apiCall = async (endpoint, options = {}) => {
