@@ -1,21 +1,24 @@
 // middleware/cors.js
 import cors from 'cors';
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://book-adventurestrip.vercel.app'
+];
+
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests from these origins
-    const allowedOrigins = [
-      'http://localhost:5173', // Vite dev server
-      'http://localhost:3000', // React dev server
-      'https://book-adventurestrip.vercel.app' // Production
-    ];
-    
-    // Allow requests with no origin (like mobile apps or curl requests)
+    console.log('🔍 CORS check for origin:', origin);
+
+    // Allow requests with no origin (like mobile apps, curl, etc.)
     if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
+
+    // Check if origin matches allowed list (exact match)
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.error(' CORS blocked for origin:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
