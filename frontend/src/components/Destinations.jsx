@@ -181,43 +181,8 @@ const Destinations = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50 pt-6">
       <div className="container mx-auto px-4 py-8">
-        {/* Search and Filters Header */}
-        <div className="mb-8">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="flex-1 w-full md:max-w-md">
-              <form onSubmit={handleSearch} className="relative">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                  <input
-                    type="text"
-                    placeholder="Search adventures, destinations..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-              </form>
-            </div>
-            
-            <div className="flex gap-2">
-              <button className="flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200">
-                <Filter className="h-4 w-4 mr-2" />
-                Filters
-              </button>
-              {(searchQuery || Object.values(filters).some(Boolean)) && (
-                <button
-                  onClick={clearAllFilters}
-                  className="px-4 py-2 text-gray-600 hover:text-gray-800 transition duration-200"
-                >
-                  Clear All
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-
         {/* Destinations Grid */}
         {filteredDestinations.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
