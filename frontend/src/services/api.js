@@ -1,11 +1,15 @@
 // src/services/api.js
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://book-adventurestrip.onrender.com/'
-    : 'http://localhost:5000/api';
+  ? 'https://book-adventurestrip.onrender.com/api'  // Remove trailing slash
+  : 'http://localhost:5000/api';
 
 // Generic API call function
 export const apiCall = async (endpoint, options = {}) => {
-  const url = `${API_BASE_URL}${endpoint}`;
+  // Remove leading slash from endpoint to avoid double slashes
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
+  const url = `${API_BASE_URL}/${cleanEndpoint}`;
+  
+  console.log('API Call:', url); // Debug logging
   
   const config = {
     headers: {
@@ -28,12 +32,4 @@ export const apiCall = async (endpoint, options = {}) => {
     console.error('API call failed:', error);
     throw error;
   }
-};
-
-// Specific API methods
-export const api = {
-  get: (endpoint) => apiCall(endpoint),
-  post: (endpoint, data) => apiCall(endpoint, { method: 'POST', body: JSON.stringify(data) }),
-  put: (endpoint, data) => apiCall(endpoint, { method: 'PUT', body: JSON.stringify(data) }),
-  delete: (endpoint) => apiCall(endpoint, { method: 'DELETE' }),
 };
