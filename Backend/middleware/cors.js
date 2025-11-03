@@ -4,7 +4,8 @@ import cors from 'cors';
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
-  'https://book-adventurestrip.vercel.app'
+  'https://book-adventurestrip.vercel.app',
+  'https://book-adventurestrip.onrender.com/api'
 ];
 
 const corsOptions = {
